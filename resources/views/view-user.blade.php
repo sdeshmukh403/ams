@@ -1,6 +1,5 @@
 @extends('layouts.app')
 @section('content')
-@include('header')
           <div class="col-10 grid-margin stretch-card">
             <div class="card">           
 

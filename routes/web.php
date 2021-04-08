@@ -1,6 +1,4 @@
 <?php
-use App\User;
-use Illuminate\Support\Facades\Hash;
 
 
 /*

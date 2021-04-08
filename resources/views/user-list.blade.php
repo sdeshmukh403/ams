@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-@include('header')
+
  <div class="col-lg-12 grid-margin stretch-card">
     <div class="card" >
       <h3>User list</h3>
@@ -88,29 +88,33 @@
           <hr>
       </div>
     </div>
-    @include('footer')
 
     <script>
-    $('.deleteUser').click(function(){
-      id = $(this).data('id');
-       isDelete = confirm('Do you want to delete'); 
-       if(isDelete){
-         $.ajax({
-           url:"{!! url('delete-user') !!}/"+id,
-           success: function(data){
-             if(data == 'success'){
-               alert('data deleted successfully');
-               window.location.reload();
-             } 
-           }
-         })
-       }
-    })
+$(document).ready(function() {
 
-   $('#filter').change(function(){
-      if('dob' == $(this).val() || 'created_at' == $(this).val()){
+$('.deleteUser').click(function() {
+    id = $(this).data('id');
+    isDelete = confirm('Do you want to delete');
+    if (isDelete) {
+        $.ajax({
+            url: "{!! url('delete-user') !!}/" + id,
+            success: function(data) {
+                if (data == 'success') {
+                    alert('data deleted successfully');
+                    window.location.reload();
+                }
+            }
+        })
+    }
+})
+
+$('#filter').change(function() {
+    if ('dob' == $(this).val() || 'created_at' == $(this).val()) {
         $('#search').prop("type", "date");
-      }
-   });
+    } else {
+        $('#search').prop("type", "text");
+    }
+});
+})
   </script>
 @endsection

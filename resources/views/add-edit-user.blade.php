@@ -1,4 +1,5 @@
-@include('header')
+@extends('layouts.app')
+@section('content')
           <div class="col-10 grid-margin stretch-card">
             <div class="card">
               <div class="card-body">
@@ -66,17 +67,16 @@
               </div>
             </div>
           </div>
-          
-@include('footer')
-
 <script>
-$(document).off('click');
-
-$("form").submit(function(){
-
- if($('#password').val() != $('#cnfm_password').val()){
-  alert("Password and Confirm password must be same");
- return false;
- }  
-});
+$(document).ready(function() {
+    $(document).off('click');
+    $("form").submit(function() {
+        if ($('#password').val() != $('#cnfm_password').val()) {
+            alert("Password and Confirm password must be same");
+            return false;
+        }
+    });
+})
 </script>
+@endsection          
+
